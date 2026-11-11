@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-royal-blue: #0f2b48;
+  --color-cinderella-blue: #a3c9f7;
+  --color-gold: #cca53a;
+  --color-gold-light: #f6e6b4;
+}
+
+/* Custom smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0b192e;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* Gold foil gradient effect */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fce9ad 0%, #d4af37 40%, #aa8228 70%, #fef3c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #f7e7b4 0%, #cca53a 50%, #9c731e 100%);
+}
+
+.bg-ribbon-navy {
+  background: linear-gradient(180deg, #163866 0%, #0d2342 100%);
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(13, 36, 68, 0.15), 0 0 0 1px rgba(204, 165, 58, 0.2);
+}
+
+.glass-card-dark {
+  background: rgba(13, 36, 68, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(204, 165, 58, 0.35);
+  box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.4);
+}
+
+/* Fancy double border for regal invitations */
+.royal-border {
+  border: 2px solid #cca53a;
+  outline: 1px solid rgba(204, 165, 58, 0.4);
+  outline-offset: 4px;
+}
+
+/* Custom sparkle animation */
+@keyframes sparkleFlicker {
+  0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+.animate-sparkle {
+  animation: sparkleFlicker 3s infinite ease-in-out;
+}
+
+/* Hide scrollbar for photo carousels while allowing touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
