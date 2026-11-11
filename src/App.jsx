@@ -5,7 +5,6 @@ import EnvelopeIntro from './components/EnvelopeIntro';
 import HeroSection from './components/HeroSection';
 import EventDetails from './components/EventDetails';
 import DressCode from './components/DressCode';
-import PhotoGallery from './components/PhotoGallery';
 import RsvpSection from './components/RsvpSection';
 import DigitalPassModal from './components/DigitalPassModal';
 
@@ -49,9 +48,6 @@ export default function App() {
 
         {/* Dress Code & Color Notice */}
         <DressCode />
-
-        {/* Photo Gallery: Through the Years */}
-        <PhotoGallery />
 
         {/* RSVP Confirmation Section */}
         <RsvpSection onShowPass={(pass) => setSelectedPass(pass)} />
