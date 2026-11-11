@@ -105,7 +105,7 @@ export default function CircularCarousel({ items = [] }) {
         }}
       >
         <div
-          className="relative w-[210px] h-[300px] transition-transform duration-500 ease-out"
+          className="relative w-[210px] h-[300px] transition-transform duration-500 ease-out will-change-transform transform-gpu"
           style={{
             transformStyle: 'preserve-3d',
             transform: `rotateY(${-(currentIndex * angleStep) + (dragOffset * 0.15)}deg)`,
@@ -121,18 +121,18 @@ export default function CircularCarousel({ items = [] }) {
 
             const isFront = Math.abs(relAngle) < angleStep / 2;
             const distanceRatio = Math.abs(relAngle) / 180;
-            const opacity = Math.max(0.25, 1 - distanceRatio * 1.1);
+            const opacity = Math.max(0.3, 1 - distanceRatio * 1.1);
 
             return (
               <div
                 key={index}
                 onClick={() => handleCardClick(index)}
-                className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 border border-gold-400/50 bg-royal-950"
+                className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 border border-gold-400/50 bg-royal-950 will-change-transform"
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   backfaceVisibility: 'hidden',
                   opacity: opacity,
-                  filter: isFront ? 'none' : 'brightness(0.7) blur(0.5px)',
+                  filter: isFront ? 'none' : 'brightness(0.75)',
                   zIndex: isFront ? 30 : Math.round(20 - distanceRatio * 10),
                 }}
               >
@@ -141,6 +141,8 @@ export default function CircularCarousel({ items = [] }) {
                   src={item.url}
                   alt={item.title}
                   draggable="false"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top select-none pointer-events-none"
                 />
 

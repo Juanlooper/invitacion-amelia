@@ -62,7 +62,7 @@ export default function HeroSection({ onOpenRsvp }) {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-[11px] uppercase tracking-[0.22em] text-royal-800 font-cinzel font-semibold max-w-[280px] mx-auto leading-relaxed mt-2 mb-6"
           >
-            Acompáñanos a celebrar el cumpleaños de nuestra hija
+            Una reunión para celebrar los 15 años de nuestra hija
           </motion.p>
 
           {/* Portrait of Amelia in Cinderella dress */}
@@ -76,6 +76,8 @@ export default function HeroSection({ onOpenRsvp }) {
               <img
                 src="/photos/amelia-hero.jpg"
                 alt="Amelia Quinceañera"
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-royal-950/40 via-transparent to-transparent pointer-events-none" />

@@ -45,21 +45,35 @@ body {
   background: linear-gradient(180deg, #163866 0%, #0d2342 100%);
 }
 
-/* Glassmorphism Card Style */
+/* High-Performance Card Style for 60fps on all devices */
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 10px 30px -10px rgba(13, 36, 68, 0.15), 0 0 0 1px rgba(204, 165, 58, 0.2);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 20px -6px rgba(13, 36, 68, 0.18), 0 0 0 1px rgba(204, 165, 58, 0.25);
+  transform: translateZ(0);
+}
+
+@supports (backdrop-filter: blur(6px)) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.91);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 .glass-card-dark {
-  background: rgba(13, 36, 68, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(13, 36, 68, 0.88);
   border: 1px solid rgba(204, 165, 58, 0.35);
-  box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+}
+
+@supports (backdrop-filter: blur(6px)) {
+  .glass-card-dark {
+    background: rgba(13, 36, 68, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 /* Fancy double border for regal invitations */

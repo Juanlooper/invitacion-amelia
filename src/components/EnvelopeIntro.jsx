@@ -51,7 +51,7 @@ export default function EnvelopeIntro({ isOpen, onOpen }) {
                 </div>
 
                 <p className="text-[10px] uppercase tracking-[0.25em] text-ice-200/80 mb-1 font-cinzel font-semibold">
-                  Invitación de Honor
+                  Invitación Especial
                 </p>
 
                 <h1 className="font-serif text-3xl font-bold text-white mb-0 drop-shadow">
@@ -65,7 +65,7 @@ export default function EnvelopeIntro({ isOpen, onOpen }) {
                 <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto my-3" />
 
                 <p className="text-xs text-ice-100/90 font-light leading-relaxed mb-6 px-3">
-                  Acompáñanos a una reunión muy especial en honor a nuestra hija.
+                  Una reunión para celebrar los 15 años de nuestra hija.
                 </p>
 
                 {/* Wax Seal Button */}

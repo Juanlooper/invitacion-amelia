@@ -65,7 +65,6 @@ export default function EventDetails() {
             <p className="font-serif text-lg font-bold text-royal-950">
               8:00 PM
             </p>
-            <p className="text-xs text-slate-600">Recepción y Gala</p>
           </div>
         </motion.div>
 

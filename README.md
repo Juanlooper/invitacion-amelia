@@ -64,3 +64,4 @@ Para que cualquier persona pueda abrir la invitación en su celular desde cualqu
 
 ## Sincronización con Google Sheets
 El Webhook ya se encuentra configurado y enlazado en `src/config.js`. Cada confirmación que los invitados hagan desde la web aparecerá automáticamente como una nueva fila en tu hoja de cálculo.
+

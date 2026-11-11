@@ -1,117 +1,101 @@
 import React, { useMemo } from 'react';
 
 export default function SparklesBackground() {
-  // Generate 50 randomized twinkling and drifting stars
+  // 22 lightweight static twinkling stars (Zero CPU/memory overhead)
   const stars = useMemo(() => {
-    return Array.from({ length: 50 }).map((_, i) => ({
-      id: i,
-      top: `${(i * 19.3) % 100}%`,
-      left: `${(i * 27.7) % 100}%`,
-      size: i % 7 === 0 ? 'w-1.5 h-1.5' : i % 3 === 0 ? 'w-1 h-1' : 'w-0.5 h-0.5',
-      twinkleDuration: `${2.5 + (i % 5) * 0.8}s`,
-      twinkleDelay: `${(i * 0.4) % 4}s`,
-      driftDuration: `${12 + (i % 7) * 2}s`,
-      driftDelay: `${(i * 0.6) % 6}s`,
-      opacity: 0.3 + (i % 6) * 0.12,
-    }));
+    return [
+      { id: 1, top: '8%', left: '15%', size: 'w-1 h-1', dur: '3.1s', delay: '0s' },
+      { id: 2, top: '14%', left: '82%', size: 'w-1.5 h-1.5', dur: '4.2s', delay: '1.2s' },
+      { id: 3, top: '24%', left: '35%', size: 'w-1 h-1', dur: '3.6s', delay: '2.4s' },
+      { id: 4, top: '32%', left: '72%', size: 'w-1.5 h-1.5', dur: '4.8s', delay: '0.8s' },
+      { id: 5, top: '42%', left: '18%', size: 'w-1 h-1', dur: '3.3s', delay: '1.9s' },
+      { id: 6, top: '50%', left: '88%', size: 'w-1 h-1', dur: '4.5s', delay: '2.7s' },
+      { id: 7, top: '58%', left: '28%', size: 'w-1.5 h-1.5', dur: '3.8s', delay: '0.4s' },
+      { id: 8, top: '68%', left: '78%', size: 'w-1 h-1', dur: '4.1s', delay: '1.5s' },
+      { id: 9, top: '76%', left: '12%', size: 'w-1 h-1', dur: '3.4s', delay: '2.8s' },
+      { id: 10, top: '84%', left: '65%', size: 'w-1.5 h-1.5', dur: '4.6s', delay: '0.6s' },
+      { id: 11, top: '92%', left: '32%', size: 'w-1 h-1', dur: '3.7s', delay: '1.8s' },
+      { id: 12, top: '96%', left: '85%', size: 'w-1 h-1', dur: '4.0s', delay: '2.1s' },
+      { id: 13, top: '18%', left: '6%', size: 'w-1 h-1', dur: '3.5s', delay: '1.0s' },
+      { id: 14, top: '29%', left: '94%', size: 'w-1 h-1', dur: '4.3s', delay: '2.5s' },
+      { id: 15, top: '47%', left: '52%', size: 'w-1 h-1', dur: '3.9s', delay: '0.3s' },
+      { id: 16, top: '63%', left: '92%', size: 'w-1.5 h-1.5', dur: '4.7s', delay: '1.7s' },
+      { id: 17, top: '79%', left: '42%', size: 'w-1 h-1', dur: '3.2s', delay: '2.2s' },
+      { id: 18, top: '88%', left: '8%', size: 'w-1 h-1', dur: '4.4s', delay: '0.9s' },
+    ];
   }, []);
 
-  // 4 Shooting stars with staggered trajectories and delays
-  const shootingStars = [
-    { id: 1, top: '12%', right: '15%', delay: '0s', duration: '1.2s', repeat: '6s' },
-    { id: 2, top: '28%', right: '8%', delay: '2.5s', duration: '1.4s', repeat: '8s' },
-    { id: 3, top: '45%', right: '22%', delay: '4.8s', duration: '1.1s', repeat: '7s' },
-    { id: 4, top: '65%', right: '12%', delay: '1.8s', duration: '1.3s', repeat: '9s' },
-  ];
-
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[#061224] via-[#091b36] to-[#040c18]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[#061224] via-[#091b36] to-[#040c18] transform-gpu">
       
-      {/* Inline styles for high-performance GPU keyframes */}
+      {/* GPU-accelerated lightweight CSS keyframes */}
       <style>{`
-        @keyframes driftMove {
-          0%, 100% {
-            transform: translate(0px, 0px);
-          }
-          50% {
-            transform: translate(8px, -12px);
-          }
+        @keyframes twinklePure {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.95; }
         }
-        @keyframes starTwinkleGlow {
-          0%, 100% {
-            opacity: 0.25;
-            transform: scale(0.85);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.4);
-          }
-        }
-        @keyframes shootTrajectory {
+        @keyframes shootFast {
           0% {
-            transform: rotate(-45deg) translateX(0);
+            transform: translate3d(0, 0, 0) rotate(-45deg);
             opacity: 0;
           }
           10% {
             opacity: 1;
           }
-          70% {
+          65% {
             opacity: 1;
           }
           100% {
-            transform: rotate(-45deg) translateX(-700px);
+            transform: translate3d(-600px, 600px, 0) rotate(-45deg);
             opacity: 0;
           }
         }
       `}</style>
 
-      {/* Atmospheric ambient nebulas */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-b from-blue-400/10 via-sky-300/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-40 w-[450px] h-[450px] bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-40 w-[450px] h-[450px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Moving & Twinkling Stars */}
-      {stars.map((star) => (
+      {/* Twinkling Stars (Pure Opacity - 60fps locked) */}
+      {stars.map((s) => (
         <div
-          key={star.id}
-          className="absolute"
+          key={s.id}
+          className={`absolute ${s.size} rounded-full bg-white will-change-[opacity]`}
           style={{
-            top: star.top,
-            left: star.left,
-            animation: `driftMove ${star.driftDuration} ease-in-out infinite alternate ${star.driftDelay}`,
+            top: s.top,
+            left: s.left,
+            animation: `twinklePure ${s.dur} ease-in-out infinite ${s.delay}`,
           }}
-        >
-          <div
-            className={`${star.size} rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.85)]`}
-            style={{
-              opacity: star.opacity,
-              animation: `starTwinkleGlow ${star.twinkleDuration} ease-in-out infinite ${star.twinkleDelay}`,
-            }}
-          />
-        </div>
+        />
       ))}
 
-      {/* Shooting Stars (Estrellas Fugaces) */}
-      {shootingStars.map((meteor) => (
-        <div
-          key={meteor.id}
-          className="absolute pointer-events-none"
-          style={{
-            top: meteor.top,
-            right: meteor.right,
-            width: '140px',
-            height: '2px',
-            background: 'linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(186, 224, 253, 0.6), transparent)',
-            boxShadow: '0 0 10px 1px rgba(255, 255, 255, 0.8), 0 0 16px 2px rgba(124, 196, 250, 0.5)',
-            transformOrigin: 'right center',
-            animation: `shootTrajectory ${meteor.repeat} ease-in-out infinite ${meteor.delay}`,
-            opacity: 0,
-          }}
-        >
-          {/* Glowing head of the meteor */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_2px_#ffffff,0_0_16px_4px_#90cbfa]" />
-        </div>
-      ))}
+      {/* Shooting Star 1 */}
+      <div
+        className="absolute pointer-events-none will-change-transform"
+        style={{
+          top: '16%',
+          right: '10%',
+          width: '120px',
+          height: '1.5px',
+          background: 'linear-gradient(to left, rgba(255,255,255,1), rgba(162,210,255,0.6), transparent)',
+          animation: 'shootFast 7s ease-out infinite 1s',
+          opacity: 0,
+        }}
+      >
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
+      </div>
+
+      {/* Shooting Star 2 */}
+      <div
+        className="absolute pointer-events-none will-change-transform"
+        style={{
+          top: '48%',
+          right: '18%',
+          width: '110px',
+          height: '1.5px',
+          background: 'linear-gradient(to left, rgba(255,255,255,1), rgba(162,210,255,0.6), transparent)',
+          animation: 'shootFast 9s ease-out infinite 4.5s',
+          opacity: 0,
+        }}
+      >
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
+      </div>
 
     </div>
   );
