@@ -23,19 +23,16 @@ Una aplicación web moderna, interactiva y 100% optimizada para dispositivos mó
    - Centrado en **Casa de Amelia** (Barriada San Judas Tadeo calle 3ra).
    - Botones directos para abrir en **Google Maps**, **Waze** y **Guardar en Google Calendar**.
 
-5. **Código de Vestimenta:**
-   - Estilo **Semiformal** para que los invitados vistan con elegancia y comodidad.
-
-6. **Confirmación de Asistencia (RSVP):**
+5. **Confirmación de Asistencia (RSVP):**
    - Formulario sencillo y sin fricción (Nombre, Pases, Teléfono y Mensaje).
    - Generación instantánea de **Pase Digital**.
    - Notificación directa a la familia por WhatsApp con mensaje pre-redactado sin emojis.
    - Sincronización en tiempo real con **Google Sheets**.
 
-7. **Botón Flotante:**
+6. **Botón Flotante:**
    - Botón fijo que acompaña al usuario para acceder en 1 toque directo a la confirmación de asistencia.
 
-8. **Música de Fondo:**
+7. **Música de Fondo:**
    - Controlador flotante de audio.
    - Si deseas usar una canción específica de Amelia, simplemente coloca el archivo de audio con el nombre `music.mp3` dentro de la carpeta `public/` y se reproducirá automáticamente.
 

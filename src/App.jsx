@@ -4,7 +4,6 @@ import FloatingMusic from './components/FloatingMusic';
 import EnvelopeIntro from './components/EnvelopeIntro';
 import HeroSection from './components/HeroSection';
 import EventDetails from './components/EventDetails';
-import DressCode from './components/DressCode';
 import RsvpSection from './components/RsvpSection';
 import DigitalPassModal from './components/DigitalPassModal';
 
@@ -45,9 +44,6 @@ export default function App() {
 
         {/* Date, Time, Location & Maps */}
         <EventDetails />
-
-        {/* Dress Code & Color Notice */}
-        <DressCode />
 
         {/* RSVP Confirmation Section */}
         <RsvpSection onShowPass={(pass) => setSelectedPass(pass)} />
